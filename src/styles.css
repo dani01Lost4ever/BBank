@@ -1,0 +1,30 @@
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+/* You can add global styles to this file, and also import other style files */
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-floating-label, .mdc-text-field--filled:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-floating-label--float-above{
+    color: green !important;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::after{
+    border-bottom-color: green !important;
+}
+.mat-mdc-menu-item .mat-icon-no-color, .mat-mdc-menu-item .mat-mdc-menu-submenu-icon{
+    color: #3a9e3e !important;
+}
+th > mat-form-field > .mat-mdc-form-field-subscript-wrapper {
+    display: none !important;
+}
+tspan > title{
+    display: none !important;
+}
+
+
+.p-datepicker:not(.p-datepicker-inline){
+    z-index: 8000;
+    position: fixed;
+  }
