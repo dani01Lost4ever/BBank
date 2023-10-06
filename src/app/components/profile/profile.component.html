@@ -1,0 +1,25 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>
+        <img mat-card-image [src]="user?.picture">
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <h2>
+        Nome e cognome:<br>
+        {{ user?.fullName }}
+      </h2>
+      <h2>
+        IBAN:
+        <br>
+        {{ user?.iban }}
+      </h2>
+      <h2>
+        Data registrazione: 
+        <br>
+        {{ user?.date! | dateTimeUfficial }}
+      </h2>
+    </mat-card-content>
+</mat-card>
+<br>
+<app-change-password></app-change-password>
