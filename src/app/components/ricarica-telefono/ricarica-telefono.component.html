@@ -1,0 +1,87 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>
+        <h2>Ricarica telefono</h2>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form (ngSubmit)="ricaricaTelefono()" [formGroup]="ricaricaForm">
+            <mat-form-field>
+                <span matPrefix>&nbsp; +39 &nbsp;</span>
+                <mat-label>Numero telefono</mat-label>
+                <input matInput type="tel" formControlName="numeroTelefono" placeholder="555-555-1234" required [minlength]="10" [maxlength]="10">
+                <mat-error *ngIf="ricaricaForm.get('numeroTelefono')?.invalid">Il numero di telefono deve avere 10 numeri</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-select [value]="numbers[0]" formControlName="amount">
+                    <mat-option *ngFor="let n of numbers" [value]="n">
+                        {{n}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div style="display: flex; flex-direction: row; justify-content: space-around;">
+                <div style="display: flex; justify-content: center;">
+                    <input type="radio" formControlName="operatore" value="tim" id="tim"> 
+                    <label for="tim">
+                        <img src="../../../assets/images/tim_logo.svg">
+                    </label>
+                </div>
+                <div style="display: flex; justify-content: center;">
+                    <input type="radio" formControlName="operatore" value="fastweb" id="fastweb"> 
+                    <label for="fastweb">
+                        <img src="../../../assets/images/fastweb-logo.svg">
+                    </label>
+                </div>
+            </div>
+            <br>
+            <div style="display: flex; flex-direction: row; justify-content: space-around;">
+                <div style="display: flex; justify-content: center;">
+                    <input type="radio" formControlName="operatore" value="iliad" id="iliad"> 
+                    <label for="iliad">
+                        <img src="../../../assets/images/iliad-logo.svg">
+                    </label>
+                </div>
+                <div style="display: flex; justify-content: center;">
+                    <input type="radio" formControlName="operatore" value="windtre" id="windtre"> 
+                    <label for="windtre">
+                        <img src="../../../assets/images/windtre-logo.svg">
+                    </label>
+                </div>
+            </div>
+            <br>
+            <div style="display: flex; flex-direction: row; justify-content: space-around;">
+                <div style="display: flex; justify-content: center;">
+                    <input type="radio" formControlName="operatore" value="vodafone" id="vodafone"> 
+                    <label for="vodafone">
+                        <img src="../../../assets/images/Vodafone_2017_logo.svg">
+                    </label>
+                </div>
+                <div style="display: flex; justify-content: center;">
+                    <input type="radio" formControlName="operatore" value="spusu" id="spusu"> 
+                    <label for="spusu">
+                        <img src="../../../assets/images/spusu-logo.svg">
+                    </label>
+                </div>
+            </div>
+            <br>
+            <div style="display: flex; flex-direction: row; justify-content: space-around;">
+                <div style="display: flex; justify-content: center;">
+                    <input type="radio" formControlName="operatore" value="ho." id="ho."> 
+                    <label for="ho.">
+                        <img src="../../../assets/images/ho-logo.svg">
+                    </label>
+                </div>
+                <div style="display: flex; justify-content: center;">
+                    <input type="radio" formControlName="operatore" value="tiscali" id="tiscali"> 
+                    <label for="tiscali">
+                        <img src="../../../assets/images/tiscali-logo.svg">
+                    </label>
+                </div>
+            </div>
+            <br>
+            <button class="green" mat-raised-button type="submit" mat-button extended [disabled]="ricaricaForm.invalid">
+                Invia
+            </button>
+        </form>
+    </mat-card-content>
+</mat-card>
