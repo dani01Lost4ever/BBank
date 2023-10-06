@@ -1,0 +1,8 @@
+{
+    "/api": {
+      "target": "https://bbankapidaniel.azurewebsites.net/",
+      "secure": true,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+}
