@@ -1,0 +1,56 @@
+<mat-toolbar id="toolbar">
+    <div>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon>menu</mat-icon>
+        </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item routerLink="home">
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+                    <span>Home</span>
+                </button>                
+                <button mat-menu-item routerLink="movimenti">
+                    <mat-icon>list</mat-icon>
+                    <span>Movimenti</span>
+                </button>
+                <button mat-menu-item [matMenuTriggerFor]="menuPagamenti" aria-label="">
+                    <mat-icon>payment</mat-icon>
+                    <span>Pagamenti</span>
+                </button>
+                    <mat-menu #menuPagamenti="matMenu">
+                        <button mat-menu-item routerLink="ricarica-telefono">
+                            <mat-icon>settings_cell</mat-icon>
+                            <span>Ricarica telefono</span>
+                        </button>
+                        <button mat-menu-item routerLink="bonifico">
+                            <mat-icon>account_balance_wallet</mat-icon>
+                            <span>Bonifico</span>
+                        </button>
+                        <button mat-menu-item routerLink="transazioni-generali">
+                            <mat-icon> attach_money</mat-icon>
+                            <span>Generale</span>
+                        </button>
+                    </mat-menu>
+            </mat-menu>
+        <span class="title">BBank</span>
+    </div>
+    <div>
+        <span class="fullName">
+            {{ me?.fullName }}
+        </span>
+        <span class="account" [matMenuTriggerFor]="menuAccount">
+            <img [src]="me?.picture" alt="" class="picture">
+        </span>
+            <mat-menu #menuAccount="matMenu">
+                <button mat-menu-item routerLink="profile">
+                    <mat-icon>account_circle</mat-icon>
+                    <span>Il mio profilo</span>
+                </button>
+                <button mat-menu-item (click)="logout()">
+                    <mat-icon>power_settings_new</mat-icon>
+                    <span>Logout</span>
+                </button>
+            </mat-menu>
+    </div>
+</mat-toolbar>
+<br>
+<router-outlet></router-outlet>
