@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="flex-left">
+        <div class="sticky">
+            <mat-card>
+                <img class="logo" src="../../../assets/images/bbank_logo3.png" alt="">
+                <mat-card-header>
+                    <h2>{{ me?.fullName }}</h2>
+                </mat-card-header>
+                <br>
+                <mat-card-content>
+                    <h1>{{ balance | currency }}</h1>
+                    <br>
+                    <h2>{{ me?.iban }}</h2>
+                </mat-card-content>
+            </mat-card>
+            <br>
+            <div class="grafico">
+                <apx-chart
+                [series]="chartOptions.series!"
+                [chart]="chartOptions.chart!"
+                [dataLabels]="chartOptions.dataLabels!"
+                [stroke]="chartOptions.stroke!"
+                [title]="chartOptions.title!"
+                [grid]="chartOptions.grid!"
+                [xaxis]="chartOptions.xaxis!"
+              ></apx-chart>
+            </div>
+        </div>
+    </div>
+    <div class="flex-right">
+        <app-movimenti1></app-movimenti1>
+    </div>
+</div>
