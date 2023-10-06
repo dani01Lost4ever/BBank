@@ -1,0 +1,40 @@
+<p-table [value]="transactions">
+  <ng-template pTemplate="header">
+      <tr>
+          <th>
+            <span>
+                Ultimi movimenti
+            </span>
+            <mat-form-field>
+                <mat-select [value]="numbers[0]">
+                    <mat-option *ngFor="let n of numbers" [value]="n" (click)="changeSelection(n)">
+                        {{n}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+          </th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-transaction>
+      <tr>
+        <td class="td">
+            <div class="categoryDescription">
+                <b class="category">{{ transaction.categoryid.category }}</b>
+                <br>
+                <p class="description">{{ transaction.description }}</p>
+                <em><a (click)="openDialog(transaction)">Dettagli</a></em>
+            </div>
+            <div class="typologyDate">
+                <p>
+                    <b [ngStyle]="{'color': transaction.categoryid.typology === 'Entrata'  ? '#3a9e3e' : 'red'}">{{ typeTypelogy(transaction.categoryid.typology) }} {{ transaction.amount | currency }}</b>
+                    <br>
+                    <span class="date">{{ transaction.date | dateUfficial }}</span>
+                </p>
+            </div>
+        </td>
+      </tr>
+  </ng-template>  
+    <div class="card flex justify-content-center">
+        <p-paginator [first]="first" [rows]="rows" [totalRecords]="120" [rowsPerPageOptions]="[10, 20, 30]"></p-paginator>
+    </div>
+</p-table>
