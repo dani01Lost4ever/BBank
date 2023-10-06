@@ -1,0 +1,21 @@
+<div class="container">
+    <h1 mat-dialog-title>Dettagli</h1>
+    <div mat-dialog-content>
+        <h2>Data contabile</h2>
+        <p>{{ data!.date! | dateTimeUfficial  }}</p>
+        <h2>Importo</h2>
+        <p>{{ (data.categoryid.typology === "Uscita" ? -data.amount : data.amount) | currency }}</p>
+        <h2>Categoria</h2>
+        <p>{{ data.categoryid.category }}</p>
+        <h2>Tipologia</h2>
+        <p>{{ data.categoryid.typology }}</p>
+        <h2>Causale</h2>
+        <p>{{ data.description }}</p>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">
+            <mat-icon>navigate_before</mat-icon>
+            <span>Chiudi</span>
+        </button>
+    </div>
+</div>
