@@ -1,0 +1,88 @@
+<div class="container">
+    <div class="card">
+        <p-table
+            [(first)]="first"
+            #dt1
+            [value]="transactions"
+            dataKey="id"
+            [rows]="10"
+            [paginator]="true"
+            [showCurrentPageReport]="true"
+            [rowsPerPageOptions]="[10, 25, 50]"
+            currentPageReportTemplate="Transazioni da {first} a {last} di {totalRecords}"
+            [globalFilterFields]="['name', 'country.name', 'representative.name', 'status']"
+            >
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="min-width:15rem">
+                        <div class="flex align-items-center">
+                            <button pButton label="Filtri" class="p-button-outlined" [matMenuTriggerFor]="menu">
+                                <i class="pi pi-filter"></i>
+                            </button>
+                            <mat-menu #menu="matMenu">
+                                <div fxLayout="column" (click)="$event.stopPropagation();">
+                                    <form [formGroup]="filtriForm">
+                                        <mat-form-field style="width: 95%; margin: 5px;">
+                                            <mat-label>Ultimi</mat-label>
+                                            <input type="number" matInput formControlName="num" id="num" [value]="filtriForm.value.num">
+                                        </mat-form-field>
+                                        <mat-form-field style="width: 95%; margin: 5px;">
+                                            <mat-label>Categoria</mat-label>
+                                            <mat-select formControlName="categoryId">
+                                                <mat-option>
+                                                    --nessuno--
+                                                </mat-option>
+                                              <mat-option *ngFor="let c of categoryid | async" [value]="c.id">
+                                                {{c.category}}
+                                              </mat-option>
+                                            </mat-select>
+                                          </mat-form-field>
+                                          <mat-form-field style="width: 95%; margin: 5px;">
+                                            <mat-label>Enter a date range</mat-label>
+                                            <mat-date-range-input [rangePicker]="picker">
+                                              <input matStartDate formControlName="startDate" placeholder="Start date">
+                                              <input matEndDate formControlName="endDate" placeholder="End date">
+                                            </mat-date-range-input>
+                                            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                                            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                            <mat-date-range-picker #picker></mat-date-range-picker>
+                                          </mat-form-field>
+                                    </form>
+                                </div>
+                            </mat-menu>
+                            <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash" (click)="resetFiltri()" class="cancel"></button>
+                        </div>
+                        <div class="flex">
+                            <button type="button" pButton pRipple icon="pi pi-file" (click)="exportArray('csv')" class="mr-2" pTooltip="CSV" tooltipPosition="bottom" class="csv"></button>
+                            <button type="button" pButton pRipple icon="pi pi-file-excel" (click)="exportArray('xlsx')" class="p-button-success mr-2" pTooltip="XLS" tooltipPosition="bottom"></button>
+                        </div>
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-transaction>
+                <tr>
+                    <td class="td">
+                        <div class="categoryDescription">
+                            <b class="category">{{ transaction.categoryid.category }}</b>
+                            <br>
+                            <p class="description">{{ transaction.description }}</p>
+                            <em><a (click)="openDialog(transaction)">Dettagli</a></em>
+                        </div>
+                        <div class="typologyDate">
+                            <p>
+                                <b [ngStyle]="{'color': transaction.categoryid.typology === 'Entrata'  ? '#3a9e3e' : 'red'}">{{ typeTypelogy(transaction.categoryid.typology) }} {{ transaction.amount | currency }}</b>
+                                <br>
+                                <span class="date">{{ transaction.date | dateUfficial }}</span>
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="7">No customers found.</td>
+                </tr>
+            </ng-template>            
+        </p-table>
+    </div>
+</div>
