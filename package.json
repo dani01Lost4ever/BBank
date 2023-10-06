@@ -24,6 +24,7 @@
     "@types/lodash": "^4.14.199",
     "apexcharts": "^3.42.0",
     "file-saver": "^2.0.5",
+    "firebase": "^10.4.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "ng-apexcharts": "^1.8.0",
