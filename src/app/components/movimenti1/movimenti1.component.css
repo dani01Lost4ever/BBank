@@ -1,0 +1,42 @@
+p-table{
+  position: relative;
+  width: auto;
+  height: auto;
+}
+table{
+  max-width: 800px !important;
+}
+th{
+  border-radius: 15px 15px 10px 10px;
+}
+th,
+.td{
+  display: flex; 
+  flex-direction: row; 
+  justify-content: space-between;
+}
+th > span,
+mat-form-field{
+  margin-top: auto;
+  margin-bottom: auto;
+}
+mat-form-field{
+  width: 70px;
+}
+a{
+  color: #008B8B
+}
+a:hover{
+  cursor: pointer;
+}
+.categoryDescription{
+  max-width: 50%;
+}
+.typologyDate{
+  text-align: right;
+}
+@media (max-width: 600px){
+  .description{
+    display: none;
+  }
+}
