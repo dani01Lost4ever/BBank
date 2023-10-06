@@ -1,0 +1,57 @@
+p-table{
+    position: relative;
+    width: auto;
+    height: auto;
+  }
+  .container{
+    max-width: 1000px !important;
+    margin: auto;
+  }
+  th{
+    border-radius: 15px 15px 10px 10px;
+  }
+  th,
+  .td{
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between;
+  }
+  th > span,
+  mat-form-field{
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  mat-form-field{
+    width: 70px;
+  }
+  a{
+    color: #008B8B
+  }
+  a:hover{
+    cursor: pointer;
+  }
+  .categoryDescription{
+    max-width: 50%;
+  }
+  .typologyDate{
+    text-align: right;
+  }
+  @media (max-width: 600px){
+    .description{
+      display: none;
+    }
+  }
+  .time{
+    border: 1px solid #9e9999; 
+    width: 95%; 
+    margin: 5px; 
+    border-radius: 5px; 
+    height: 30px;
+  }
+  .time:focus{
+    outline: none !important;
+    border: 2px solid #3f51b5 !important;
+  }
+  .flex > button:first-child{
+    margin-right: 5px;
+  }
