@@ -1,0 +1,56 @@
+*{
+  color: black !important;
+}
+.example-spacer {
+    flex: 1 1 auto;
+}
+mat-toolbar{
+  background: rgb(0,255,255);
+  background: linear-gradient(90deg, rgba(0,255,255,1) 10%, rgba(50,205,50,1) 100%);
+    position: sticky; 
+    top: 0%; 
+    width: 100%; 
+    z-index: 2000
+}
+.menu{
+  color: black;
+  font-size: xx-large;
+  font-weight: 900;
+}
+.title{
+  color: black;
+  font-size: xx-large;
+  font-weight: 400;
+}
+.account{
+  height: 100%; 
+  display: flex; 
+  padding: 12px;
+}
+.account:hover{
+  cursor: pointer;
+  opacity: 0.9;
+}
+mat-toolbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.fullName{
+  margin-top: auto !important; 
+  margin-bottom: auto !important;
+}
+@media (max-width: 600px){
+  .fullName{
+    display: none;
+  }
+}
+div:last-child{
+  display: flex;
+}
+.picture{
+  width: 50px; 
+  border-radius: 100px; 
+  height: 80%; 
+  margin-top: auto;
+}
