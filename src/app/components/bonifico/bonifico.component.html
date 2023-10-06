@@ -1,0 +1,26 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>
+        <h2>Bonifico</h2>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form (ngSubmit)="bonifico()" [formGroup]="bonificoForm">
+            <mat-form-field>
+                <mat-label>Inserisci iban</mat-label>
+                <input matInput formControlName="iban" required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Quantità denaro</mat-label>
+                <input matInput type="number" formControlName="amount" required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Descrizione</mat-label>
+                <textarea matInput formControlName="description" required></textarea>
+            </mat-form-field>
+            <button class="green" mat-raised-button type="submit" mat-button extended [disabled]="bonificoForm.invalid">
+                Invia
+            </button>
+        </form>
+    </mat-card-content>
+</mat-card>
