@@ -1,0 +1,30 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>
+        <h2>Transazione generale</h2>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form (ngSubmit)="bonifico()" [formGroup]="transazioneForm">
+            <mat-form-field>
+                <mat-label>Quantità denaro</mat-label>
+                <input matInput type="number" formControlName="amount" required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Descrizione</mat-label>
+                <textarea matInput formControlName="description" required></textarea>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Categoria</mat-label>
+                <mat-select [value]="categoryid[0].id" formControlName="categoryid">
+                    <mat-option *ngFor="let n of categoryid" [value]="n.id">
+                        {{n.category}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <button class="green" mat-raised-button type="submit" mat-button extended [disabled]="transazioneForm.invalid">
+                Invia
+            </button>
+        </form>
+    </mat-card-content>
+</mat-card>
